@@ -1,0 +1,9 @@
+d8b899b31d3084c61f06adcdeac35120 *DESCRIPTION
+5bb136114d8c607b1d0ac30782615926 *NAMESPACE
+c22c82a37ff67fdc9c3aa990f7cccb53 *R/mondrian.R
+c9c7b307449b78cb09d9655209fc6408 *data/endosymbiont_1pop.rda
+dc63ca5ee84711e863290e7638330ce7 *data/endosymbiont_3pop.rda
+ae34b7313d80547a2c6c7fd56f642634 *man/Mondrian-package.Rd
+109a5f2eda354deea9f5fb31b2529c66 *man/endosymbiont_1pop.Rd
+c8f025ac10c76559f15fcf8f69dd3c63 *man/endosymbiont_3pop.Rd
+15c97f0168a885092e9937e20f52451e *man/mondrian.Rd
