@@ -3,50 +3,30 @@ shinyServer(function(input, output) {
   ##########################################
   ############### runex1 ###################
   ##########################################
-  output$ex1plot <- renderPlot({
-    data(endosymbiont_1pop)
-    mondrian(endosymbiont_1pop, col = c("blue", "red", "yellow"))
-  })
-  
-  output$ex1table <- renderPrint({
-    data(endosymbiont_1pop)
-    pdf("temp1.pdf")
-    res <- mondrian(endosymbiont_1pop, col = c("blue", "red", "yellow"))
-    dev.off()
-    if(file.exists("temp1.pdf"))
-      file.remove("temp1.pdf")
-    return(res)
-  })
-  
   output$ex1data <- renderDataTable({
     data(endosymbiont_1pop)
-    DT::datatable(endosymbiont_1pop, options = list(pageLength = 10, searching = FALSE))
+    output$ex1plot <- renderPlot({
+      mondrian(endosymbiont_1pop, col = c("blue", "red", "yellow"))
+    })
+    output$ex1table <- renderPrint({
+      print(mondrian(endosymbiont_1pop, col = c("blue", "red", "yellow")))
+    })
+    return(DT::datatable(endosymbiont_1pop, options = list(pageLength = 10, searching = FALSE)))
   })
-  
   
   
   ##########################################
   ############### runex2 ###################
   ##########################################
-  
-  output$ex2plot <- renderPlot({
-    data(endosymbiont_3pop)
-    mondrian(endosymbiont_3pop, pop = 1)
-  })
-  
-  output$ex2table <- renderPrint({
-    data(endosymbiont_3pop)
-    pdf("temp2.pdf")
-    res <- mondrian(endosymbiont_3pop, pop = 1)
-    dev.off()
-    if(file.exists("temp2.pdf"))
-      file.remove("temp2.pdf")
-    return(res)
-  })
-  
   output$ex2data <- renderDataTable({
     data(endosymbiont_3pop)
-    DT::datatable(endosymbiont_3pop, options = list(pageLength = 10, searching = FALSE))
+    output$ex2plot <- renderPlot({
+      mondrian(endosymbiont_3pop, pop = 1)
+    })
+    output$ex2table <- renderPrint({
+      print(mondrian(endosymbiont_3pop, pop = 1))
+    })
+    return(DT::datatable(endosymbiont_3pop, options = list(pageLength = 10, searching = FALSE)))
   })
   
   
@@ -102,7 +82,6 @@ shinyServer(function(input, output) {
     })
   })
   
-  
   plotdata <- reactive({
     res <- loaddata()
     isolate({
@@ -117,7 +96,6 @@ shinyServer(function(input, output) {
     })    
   })
   
-  
   validateFile <- function(){
     inFile <- input$file
     extFile <- file_ext(inFile$name)
@@ -125,7 +103,6 @@ shinyServer(function(input, output) {
       need(extFile == "txt" | extFile == "csv", "Only .txt or .csv files are allowed.")
     )
   }
-  
   
   output$mondrianplot <- renderPlot({
     input$doplot
@@ -145,11 +122,7 @@ shinyServer(function(input, output) {
       inFile <- input$file
       if (! is.null(inFile)) {
         validateFile()
-        pdf("tempmondrian.pdf")
         res <- plotdata()
-        dev.off()
-        if(file.exists("tempmondrian.pdf"))
-          file.remove("tempmondrian.pdf")
         if (! is.null(res))
           return(res)
       }
@@ -170,11 +143,6 @@ shinyServer(function(input, output) {
   })
   
   
-  
-  
-  
-  
-  
   plotdata2 <- function() {
     res <- loaddata()
     mondrian(res$dd, labels = res$ll, xlab = res$xx, ylab = res$yy, main = res$mm, col = res$cc, pop = res$pp, indiv = res$indiv)
@@ -192,10 +160,5 @@ shinyServer(function(input, output) {
     },
     contentType = 'image/png'
   )
-  
-  #   outputOptions(output, "save", suspendWhenHidden = FALSE)
-  
-  
-  
   
 })
