@@ -1,4 +1,4 @@
-7738f4fbf2a038572a7b0327853f883f *DESCRIPTION
+4980e595c9a0cb3052c9d51180fd18bd *DESCRIPTION
 5bb136114d8c607b1d0ac30782615926 *NAMESPACE
 33b457d454321ca1ebac168aa3f600d9 *R/mondrian.R
 c9c7b307449b78cb09d9655209fc6408 *data/endosymbiont_1pop.rda
@@ -6,7 +6,7 @@ dc63ca5ee84711e863290e7638330ce7 *data/endosymbiont_3pop.rda
 e45f6eddef3e4e222305af1a08f25190 *inst/MondrianShiny/global.R
 b6717004c0c67d0cd3ba3e6d4df8c5e9 *inst/MondrianShiny/rinstall.txt
 436518eeac1f5e2d33d505578c4a5c65 *inst/MondrianShiny/server.R
-6d070986c58d809386fdf30552bc5f6e *inst/MondrianShiny/ui.R
+4c2f74935d8a29ea9d061c02ec5547d9 *inst/MondrianShiny/ui.R
 853e51830c59334a4a355102773bd956 *inst/MondrianShiny/www/bootstrap.css
 2b186b42ae0df3bc2ee324b056d70e76 *inst/MondrianShiny/www/exampleFile_multipop.txt
 2ae3889bfed733217d326cf48e0c163f *inst/MondrianShiny/www/exampleFile_onepop.txt
